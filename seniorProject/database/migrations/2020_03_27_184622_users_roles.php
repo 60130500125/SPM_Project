@@ -14,13 +14,13 @@ class UsersRoles extends Migration
     public function up()
     {
         Schema::create('users_roles', function (Blueprint $table) {
-            $table->string('user_id',20);
-            $table->string('role_id',2);
+            $table->bigIncrements('id');
+            $table->bigInteger('internal_user_id')->unsigned()->index();
+            $table->bigInteger('internal_role_id')->unsigned()->index();
             $table->timestamps();
 
-            $table->primary(['user_id','role_id']);
-            $table->foreign('user_id')->references('user_id')->on('users');
-            $table->foreign('role_id')->references('role_id')->on('roles');
+            $table->foreign('internal_user_id')->references('id')->on('users');
+            $table->foreign('internal_role_id')->references('id')->on('roles');
         });
     }
 

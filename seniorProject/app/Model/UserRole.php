@@ -10,12 +10,12 @@ class UserRole extends Model
 
     public function users()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class,'internal_user_id');
     }
 
     public function roles()
     {
-        return $this->belongsTo(Role::class,'role_id');
+        return $this->belongsTo(Role::class,'internal_role_id');
 
     }
 }

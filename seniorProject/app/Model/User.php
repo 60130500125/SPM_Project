@@ -10,6 +10,6 @@ class User extends Model
     
     public function users_roles()
     {
-        return $this->hasMany(UserRole::class,'user_id');
+        return $this->hasMany(UserRole::class,'internal_user_id');
     }
 }

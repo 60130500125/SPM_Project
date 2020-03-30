@@ -14,13 +14,13 @@ class Groups extends Migration
     public function up()
     {
         Schema::create('groups', function (Blueprint $table) {
-            $table->string('user_id',20);
-            $table->string('project_id',5);
+            $table->bigIncrements('id');
+            $table->bigInteger('internal_user_id')->unsigned()->index();
+            $table->bigInteger('internal_project_id')->unsigned()->index();
             $table->timestamps();
-
-            $table->primary(['user_id','project_id']);
-            $table->foreign('user_id')->references('user_id')->on('users');
-            $table->foreign('project_id')->references('project_id')->on('projects');
+            
+            $table->foreign('internal_user_id')->references('id')->on('users');
+            $table->foreign('internal_project_id')->references('id')->on('projects');
         });
     }
 

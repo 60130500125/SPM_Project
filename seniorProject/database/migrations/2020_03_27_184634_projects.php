@@ -14,11 +14,11 @@ class Projects extends Migration
     public function up()
     {
         Schema::create('projects', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->string('project_id',5);
             $table->string('project_name',200);
             $table->timestamps();
 
-            $table->primary('project_id');
         });
     }
 

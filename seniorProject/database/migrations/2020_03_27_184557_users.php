@@ -14,13 +14,11 @@ class Users extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->string('user_id',20);
-            $table->string('user_name',100);
-            $table->string('department',3)->nullable();
+            $table->bigIncrements('id');
+            $table->string('user_id', 20);
+            $table->string('user_name', 100);
+            $table->string('department', 3)->nullable();
             $table->timestamps();
-            
-            $table->primary('user_id');
-            
         });
     }
 
@@ -36,4 +34,3 @@ class Users extends Migration
         Schema::enableForeignKeyConstraints();
     }
 }
-

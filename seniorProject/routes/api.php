@@ -17,4 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
 Route::post('/project','UserManagementController@storeProject');
+
+Route::get('/users','UserManagementController@index');
+Route::get('/user/students','UserManagementController@indexStudent');
+Route::get('/user/teachers','UserManagementController@indexTeacher');
